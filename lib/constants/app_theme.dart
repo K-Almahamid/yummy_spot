@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:yummy_spot/constants/app_colors.dart';
 import 'package:yummy_spot/constants/app_dimensions.dart';
 import 'package:yummy_spot/constants/app_fonts.dart';
@@ -20,21 +21,24 @@ ThemeData getApplicationThem() {
       color: AppColors.white,
       shadowColor: AppColors.grey,
       elevation: AppSize.s4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
     ),
     // app bar theme
-    // appBarTheme: AppBarTheme(
-    //   centerTitle: true,
-    //   color: AppColors.offWhite,
-    //   elevation: AppSize.s0,
-    //   shadowColor: AppColors.grey,
-    //   systemOverlayStyle:
-    //       const SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
-    //   iconTheme: IconThemeData(color: AppColors.black),
-    //   titleTextStyle: getMediumStyle(
-    //     color: AppColors.black,
-    //     fontSize: AppSize.s16,
-    //   ),
-    // ),
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      color: AppColors.offWhite,
+      elevation: AppSize.s0,
+      shadowColor: AppColors.grey,
+      systemOverlayStyle:
+          const SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
+      iconTheme: IconThemeData(color: AppColors.black),
+      titleTextStyle: getMediumStyle(
+        color: AppColors.black,
+        fontSize: AppSize.s16,
+      ),
+    ),
     // button theme
     // buttonTheme: ButtonThemeData(
     //   shape: const StadiumBorder(),

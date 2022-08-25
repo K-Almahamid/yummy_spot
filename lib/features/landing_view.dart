@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icon.dart';
-import 'package:yummy_spot/constants/app_colors.dart';
-import 'package:yummy_spot/constants/app_styles.dart';
+import 'package:yummy_spot/common_widgets/custom_scaffold.dart';
 import 'package:yummy_spot/constants/dimensions.dart';
 import 'package:yummy_spot/features/home/view/home_view.dart';
 import 'package:yummy_spot/features/profile_view.dart';
-import 'package:yummy_spot/features/recipes_view.dart';
+import 'package:yummy_spot/features/recipes/view/recipes_view.dart';
+
+import '../constants/app_colors.dart';
+import '../constants/app_styles.dart';
 
 class LandingView extends StatefulWidget {
   const LandingView({Key? key}) : super(key: key);
@@ -47,9 +49,11 @@ class _LandingViewState extends State<LandingView> {
   @override
   Widget build(BuildContext context) {
     double displayWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: _screens[_currentIndex],
-      bottomNavigationBar: Container(
+    return CustomScaffold(
+      body: SafeArea(
+        child: _screens[_currentIndex],
+      ),
+      bottomNavBar: Container(
         height: Dimensions.h70,
         padding: EdgeInsets.only(
             bottom: Dimensions.h10, top: Dimensions.h10, left: Dimensions.w10),
@@ -73,6 +77,7 @@ class _LandingViewState extends State<LandingView> {
               setState(
                 () {
                   _currentIndex = index;
+                  print(Dimensions.screenHeight / 8);
                 },
               );
             },
@@ -144,6 +149,9 @@ class _LandingViewState extends State<LandingView> {
                           ),
                           Image.asset(
                             _images[index],
+                            height: Dimensions.h30,
+                            width: Dimensions.w25,
+                            fit: BoxFit.contain,
                           ),
                         ],
                       ),

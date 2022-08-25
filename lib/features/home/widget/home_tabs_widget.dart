@@ -2,20 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:yummy_spot/constants/app_colors.dart';
 import 'package:yummy_spot/constants/app_styles.dart';
 import 'package:yummy_spot/constants/dimensions.dart';
+import 'package:yummy_spot/data/home_tab_model.dart';
 
-class TabsViewWidget extends StatefulWidget {
+class HomeTabsWidget extends StatefulWidget {
   final TabController tabController;
   int selectedIndex;
 
-  TabsViewWidget(
-      {Key? key, required this.tabController, required this.selectedIndex})
-      : super(key: key);
+  HomeTabsWidget({
+    Key? key,
+    required this.tabController,
+    required this.selectedIndex,
+  }) : super(key: key);
 
   @override
-  State<TabsViewWidget> createState() => _TabsViewWidgetState();
+  State<HomeTabsWidget> createState() => _HomeTabsWidgetState();
 }
 
-class _TabsViewWidgetState extends State<TabsViewWidget> {
+class _HomeTabsWidgetState extends State<HomeTabsWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -41,23 +44,10 @@ class _TabsViewWidgetState extends State<TabsViewWidget> {
                   left: 2, right: Dimensions.w20, top: 2, bottom: 2),
               margin: EdgeInsets.only(top: Dimensions.h10),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: index == widget.selectedIndex
-                    ? AppColors.offGrey2
-                    : AppColors.offWhite,
-                boxShadow: [
-                  index == widget.selectedIndex
-                      ? const BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 2,
-                          spreadRadius: 1,
-                          offset: Offset(0, 2),
-                        )
-                      : const BoxShadow(
-                          color: Colors.transparent,
-                        ),
-                ],
-              ),
+                  borderRadius: BorderRadius.circular(30),
+                  color: index == widget.selectedIndex
+                      ? AppColors.secondary
+                      : AppColors.offWhite),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -71,14 +61,15 @@ class _TabsViewWidgetState extends State<TabsViewWidget> {
                           : AppColors.offWhite,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(
-                      Icons.fastfood_rounded,
+                    child: Icon(
+                      data[index].icon,
+                      color: data[index].iconColor,
                       size: 18,
                     ),
                   ),
                   SizedBox(width: Dimensions.w5),
                   Text(
-                    'Soupsssssssss',
+                    data[index].name,
                     style: getRegularStyle(
                       color: AppColors.black,
                       fontSize: Dimensions.w15,

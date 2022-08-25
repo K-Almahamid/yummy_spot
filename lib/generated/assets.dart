@@ -29,6 +29,7 @@ class Assets {
   static const String imagesError = 'assets/images/Error.svg';
   static const String imagesFacebook-2 = 'assets/images/facebook-2.svg';
   static const String imagesFail = 'assets/images/fail.svg';
+  static const String imagesFilter-svgrepo-com = 'assets/images/filter-svgrepo-com.svg';
   static const String imagesFlash Icon = 'assets/images/Flash Icon.svg';
   static const String imagesGame Icon = 'assets/images/Game Icon.svg';
   static const String imagesGift Icon = 'assets/images/Gift Icon.svg';
@@ -59,5 +60,6 @@ class Assets {
   static const String imagesTwitter = 'assets/images/twitter.svg';
   static const String imagesUser = 'assets/images/user.png';
   static const String imagesUser Icon = 'assets/images/User Icon.svg';
+  static const String recipesCherry pie = 'assets/images/recipes/cherry pie.jpeg';
 
 }
