@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:yummy_spot/constants/app_colors.dart';
 import 'package:yummy_spot/constants/app_styles.dart';
 import 'package:yummy_spot/constants/dimensions.dart';
-import 'package:yummy_spot/data/recipes_model.dart';
+import 'package:yummy_spot/features/home/controller/categories_controller.dart';
 
 class RecipesTabsWidget extends StatefulWidget {
   final TabController tabController;
@@ -17,6 +18,9 @@ class RecipesTabsWidget extends StatefulWidget {
   @override
   State<RecipesTabsWidget> createState() => _RecipesTabsWidgetState();
 }
+
+final CategoriesController _categoriesController =
+    Get.put(CategoriesController());
 
 class _RecipesTabsWidgetState extends State<RecipesTabsWidget> {
   @override
@@ -37,9 +41,10 @@ class _RecipesTabsWidgetState extends State<RecipesTabsWidget> {
         indicatorWeight: 0.01,
         onTap: (index) => setState(() => widget.selectedIndex = index),
         tabs: List<Widget>.generate(
-          recipesData.length,
+          _categoriesController.categories.length,
           (index) => Tab(
-            child: Container(
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 400),
               alignment: Alignment.center,
               padding: EdgeInsets.only(
                 left: Dimensions.w20,
@@ -54,7 +59,7 @@ class _RecipesTabsWidgetState extends State<RecipesTabsWidget> {
                       ? AppColors.primary
                       : AppColors.secondary),
               child: Text(
-                recipesData[index].category,
+                _categoriesController.categories[index].name!,
                 style: getRegularStyle(
                   color: index == widget.selectedIndex
                       ? AppColors.white

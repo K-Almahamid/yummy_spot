@@ -26,7 +26,8 @@ class CustomScaffold extends StatelessWidget {
             gradient: LinearGradient(
               colors: [
                 // Color(0xFFF2F3F2),
-                Color(0xFFECECEB),
+                //Color(0xFFECECEB),
+                const Color(0xFFE5E6E4),
                 AppColors.offWhite,
               ],
               begin: Alignment.topLeft,

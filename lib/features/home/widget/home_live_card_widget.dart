@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:yummy_spot/constants/app_colors.dart';
 import 'package:yummy_spot/constants/app_styles.dart';
 import 'package:yummy_spot/constants/dimensions.dart';
+import 'package:yummy_spot/features/lives/view/lives_view.dart';
 
 class LiveCardWidget extends StatefulWidget {
   final TabController tabController;
@@ -61,22 +63,25 @@ class _LiveCardWidgetState extends State<LiveCardWidget> {
                     ),
                   ],
                 ),
-                Chip(
-                  backgroundColor: AppColors.offGrey2,
-                  label: Row(
-                    children: [
-                      Text(
-                        'See All',
-                        style: getMediumStyle(
-                            color: AppColors.black, fontSize: 16),
-                      ),
-                      const SizedBox(width: 2),
-                      const Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 16,
-                      )
-                    ],
+                GestureDetector(
+                  child: Chip(
+                    backgroundColor: AppColors.offGrey2,
+                    label: Row(
+                      children: [
+                        Text(
+                          'See All',
+                          style: getMediumStyle(
+                              color: AppColors.black, fontSize: 16),
+                        ),
+                        const SizedBox(width: 2),
+                        const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 14,
+                        )
+                      ],
+                    ),
                   ),
+                  onTap: () => Get.to(() => const LivesView()),
                 ),
               ],
             ),

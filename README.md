@@ -1,6 +1,6 @@
 # yummy_spot
 
-A new Flutter project.
+Yummy Spot App
 
 ## Getting Started
 

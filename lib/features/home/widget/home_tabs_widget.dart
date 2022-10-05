@@ -39,7 +39,12 @@ class _HomeTabsWidgetState extends State<HomeTabsWidget> {
         tabs: List<Widget>.generate(
           widget.tabController.length,
           (index) => Tab(
-            child: Container(
+            // easeInOutBack
+            // elasticInOut
+            // elasticOut d=900
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 400),
+              // curve: Curves.elasticOut,
               padding: EdgeInsets.only(
                   left: 2, right: Dimensions.w20, top: 2, bottom: 2),
               margin: EdgeInsets.only(top: Dimensions.h10),

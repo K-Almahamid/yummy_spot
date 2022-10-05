@@ -13,6 +13,7 @@ class Dimensions {
   static double h30 = screenHeight / 27.10;
   static double h40 = screenHeight / 19.52;
   static double h45 = screenHeight / 17.35;
+  static double h50 = screenHeight / 16.26;
   static double h60 = screenHeight / 13.01;
   static double h65 = screenHeight / 12.01;
   static double h70 = screenHeight / 11.15;
@@ -22,6 +23,7 @@ class Dimensions {
   static double h110 = screenHeight / 7.10;
   static double h150 = screenHeight / 5.20;
   static double h200 = screenHeight / 4.06;
+  static double h250 = screenHeight / 3.25;
 
   static double w5 = screenWidth / 78.54;
   static double w8 = screenWidth / 49.09;
@@ -33,6 +35,7 @@ class Dimensions {
   static double w35 = screenWidth / 11.22;
   static double w40 = screenWidth / 9.8;
   static double w45 = screenWidth / 8.72;
+  static double w50 = screenWidth / 7.85;
   static double w60 = screenWidth / 6.54;
   static double w65 = screenWidth / 6.04;
   static double w70 = screenWidth / 5.61;
@@ -43,6 +46,7 @@ class Dimensions {
   static double w140 = screenWidth / 2.80;
   static double w150 = screenWidth / 2.61;
   static double w200 = screenWidth / 1.96;
+  static double w250 = screenWidth / 1.57;
 }
 
 // class SizeConfig {

@@ -20,7 +20,7 @@ class RouteGenerator {
       case Routes.homeRoute:
         return MaterialPageRoute(builder: (_) => const HomeView());
       default:
-        return unDefinedRoute();
+        return MaterialPageRoute(builder: (_) => const LandingView());
     }
   }
 

@@ -4,7 +4,8 @@ import 'package:yummy_spot/common_widgets/cricle_icon.dart';
 import 'package:yummy_spot/constants/app_colors.dart';
 import 'package:yummy_spot/constants/app_styles.dart';
 import 'package:yummy_spot/constants/dimensions.dart';
-import 'package:yummy_spot/data/recipes_model.dart';
+import 'package:yummy_spot/data/recipe_model.dart';
+import 'package:yummy_spot/features/home/controller/categories_controller.dart';
 import 'package:yummy_spot/features/recipe_details/view/recipe_details_view.dart';
 
 class RecipesListWidget extends StatefulWidget {
@@ -16,6 +17,9 @@ class RecipesListWidget extends StatefulWidget {
   @override
   State<RecipesListWidget> createState() => _RecipesListWidgetState();
 }
+
+final CategoriesController _categoriesController =
+    Get.put(CategoriesController());
 
 class _RecipesListWidgetState extends State<RecipesListWidget> {
   @override
@@ -36,10 +40,11 @@ class _RecipesListWidgetState extends State<RecipesListWidget> {
                 widget.tabController.length,
                 (index) => ListView.builder(
                   physics: const BouncingScrollPhysics(),
-                  itemCount: recipesData[index].recipes.length,
+                  itemCount:
+                      _categoriesController.categories[index].recipes!.length,
                   itemBuilder: (context, index2) {
-                    RecipeModel recipeObject =
-                        recipesData[index].recipes[index2];
+                    RecipeModel recipeObject = _categoriesController
+                        .categories[index].recipes![index2];
                     return GestureDetector(
                       child: Container(
                         height: Dimensions.h200,
@@ -49,7 +54,7 @@ class _RecipesListWidgetState extends State<RecipesListWidget> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           image: DecorationImage(
-                            image: AssetImage(recipeObject.image),
+                            image: NetworkImage(recipeObject.imageOne!),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -88,7 +93,7 @@ class _RecipesListWidgetState extends State<RecipesListWidget> {
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 5.0),
                                       child: Text(
-                                        recipeObject.name + recipeObject.name,
+                                        recipeObject.name!,
                                         softWrap: true,
                                         maxLines: 3,
                                         overflow: TextOverflow.ellipsis,
