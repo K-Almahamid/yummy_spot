@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yummy_spot/constants/app_routes.dart';
-import 'package:yummy_spot/constants/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +14,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Yummy Spot',
-      theme: getApplicationThem(),
+      //theme: getApplicationThem(),
+      theme: ThemeData(brightness: Brightness.light),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      themeMode: ThemeMode.system,
       onGenerateRoute: RouteGenerator.getRoute,
       initialRoute: Routes.landingRoute,
     );

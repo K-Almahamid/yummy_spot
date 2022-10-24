@@ -7,10 +7,10 @@ import 'package:yummy_spot/common_widgets/custom_scaffold.dart';
 import 'package:yummy_spot/constants/app_colors.dart';
 import 'package:yummy_spot/constants/dimensions.dart';
 import 'package:yummy_spot/custom_scroll/home_sliver_with_tab.dart';
+import 'package:yummy_spot/features/all_recipes/view/all_recipes_view.dart';
 import 'package:yummy_spot/features/home/controller/categories_controller.dart';
 import 'package:yummy_spot/features/home/view/home_view.dart';
 import 'package:yummy_spot/features/profile/profile_view.dart';
-import 'package:yummy_spot/features/recipes/view/recipes_view.dart';
 
 class LandingView extends StatefulWidget {
   const LandingView({Key? key}) : super(key: key);
@@ -36,11 +36,8 @@ List<String> _names = [
 
 class _LandingViewState extends State<LandingView> {
   late final List _screens = [
-    HomeView(
-      hideNavigation: hideNav,
-      showNavigation: showNav,
-    ),
-    const RecipesView(),
+    const HomeView(),
+    AllRecipesView(hideNavigation: hideNav, showNavigation: showNav),
     const HomeSliverWithTab(),
     const ProfileView(),
   ];
